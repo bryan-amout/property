@@ -1,7 +1,8 @@
-package com.example.propertyplus.ui.theme.signup
+package com.example.propertyplus.ui.theme.screens.signup
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -30,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -43,14 +45,15 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
 import com.example.propertyplus.navigation.ROUT_DETAILS
+import com.example.propertyplus.navigation.ROUT_SIGNUP
 import com.example.propertyplus.ui.theme.newgreen
 import com.example.propertyplus.ui.theme.white
 
 @Composable
 fun SignupScreen(navController: NavController){
     Column (modifier = Modifier
-        .fillMaxSize()
-        .background(white),
+        .paint(painterResource(id = R.drawable.back), contentScale = ContentScale.FillBounds)
+        .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Spacer(modifier = Modifier.height(10.dp))
@@ -138,13 +141,15 @@ fun SignupScreen(navController: NavController){
         ) {
             Text(text = "Create Account")
 
-            Spacer(modifier = Modifier.height(10.dp))
 
         }
+        Spacer(modifier = Modifier.height(10.dp))
+
         Button(
             onClick = { navController.navigate(ROUT_DETAILS)},
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable { navController.navigate(ROUT_SIGNUP) }
                 .height(50.dp)
                 .padding(start = 20.dp, end = 20.dp),
             colors = ButtonDefaults.buttonColors(newgreen),
