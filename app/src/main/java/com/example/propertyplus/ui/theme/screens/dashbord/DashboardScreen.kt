@@ -40,8 +40,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
+import com.example.propertyplus.navigation.ADD_PRODUCTS_URL
 import com.example.propertyplus.navigation.ROUT_HOME
 import com.example.propertyplus.navigation.ROUT_PROPERTY
+import com.example.propertyplus.navigation.VIEW_PRODUCTS_URL
 import com.example.propertyplus.ui.theme.newgreen
 import com.example.propertyplus.ui.theme.white
 
@@ -217,7 +219,8 @@ fun DashboardScreen(navController: NavController){
                     //card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp),
+                        .height(180.dp)
+                        .clickable { navController.navigate(ADD_PRODUCTS_URL) },
                         elevation = CardDefaults.cardElevation(20.dp),
                     ){
                         Column {
@@ -227,13 +230,13 @@ fun DashboardScreen(navController: NavController){
                                 modifier = Modifier.fillMaxWidth(),
                                 contentAlignment = Alignment.Center
                             ){
-                                Image(painter = painterResource(id = R.drawable.icon),
+                                Image(painter = painterResource(id = R.drawable.add),
                                     contentDescription ="home",Modifier.size(100.dp) )
                                 Spacer(modifier = Modifier.height(10.dp))
 
                             }
                             Text(
-                                text = "Home",
+                                text = "Add",
                                 modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center,
                                 fontSize = 18.sp
                             )
@@ -246,7 +249,8 @@ fun DashboardScreen(navController: NavController){
                     //card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp),
+                        .height(180.dp)
+                        .clickable { navController.navigate(VIEW_PRODUCTS_URL) },
                         elevation = CardDefaults.cardElevation(20.dp),
                     ) {
                         Column {
@@ -256,13 +260,13 @@ fun DashboardScreen(navController: NavController){
                                 modifier = Modifier.fillMaxWidth(),
                                 contentAlignment = Alignment.Center
                             ){
-                                Image(painter = painterResource(id = R.drawable.icon),
+                                Image(painter = painterResource(id = R.drawable.view),
                                     contentDescription ="home",Modifier.size(100.dp) )
                                 Spacer(modifier = Modifier.height(10.dp))
 
                             }
                             Text(
-                                text = "Home",
+                                text = "View",
                                 modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center,
                                 fontSize = 18.sp
                             )
